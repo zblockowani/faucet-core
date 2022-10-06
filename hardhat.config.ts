@@ -13,12 +13,8 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 31337,
     },
-    rinkeby: {
-      url: "https://kovan.infura.io/v3/b963d4c608d542a8b332b7759834cdae",
-      accounts: [
-        "ac1d01fb74e9a9567438e46ce293fa69598ad83d1ede5a33c077aa35bdbf33b4",
-      ],
-      chainId: 42,
+    localhost: {
+      chainId: 31337,
     },
   },
   namedAccounts: {

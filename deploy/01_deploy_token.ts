@@ -1,8 +1,7 @@
 import { network } from "hardhat";
 import { DeployFunction } from "hardhat-deploy/dist/types";
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import verify from "../utils/verify";
 import { DEVELOPMENT_CHAINS } from "../helper-hardhat-config";
+import verify from "../utils/verify";
 
 const deploy: DeployFunction = async ({ deployments, getNamedAccounts }) => {
   const { deploy, log } = deployments;
@@ -14,14 +13,13 @@ const deploy: DeployFunction = async ({ deployments, getNamedAccounts }) => {
     from: deployer,
     args: [],
     log: true,
-    waitConfirmations: 3,
   });
 
   log(`Token was deployed at ${token.address}`);
 
-  // if (!DEVELOPMENT_CHAINS.includes(network.name)) {
+  if (!DEVELOPMENT_CHAINS.includes(network.name)) {
     await verify(token.address, []);
-  // }
+  }
 };
 
 export default deploy;
